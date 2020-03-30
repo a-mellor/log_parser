@@ -8,7 +8,11 @@ class Formatter
   end
 
   def sort_by_unique_page_views
-
+    views = []
+    data.map do |page, ip_address|
+      views << [page, ip_address.uniq.length]
+    end
+    views.sort_by { |_, ip_count| ip_count }.reverse
   end
 
   private
