@@ -11,7 +11,7 @@ class DataAnalyser
     @file = file
   end
 
-  def parse(file)
+  def parse
     valid?
 
     LogParser.new(file).execute
