@@ -21,4 +21,21 @@ RSpec.describe DataAnalyser do
       end
     end
   end
+
+  describe '#parse' do
+    let(:parser_stub) { instance_double(LogParser) }
+
+    before do
+      allow(LogParser).to receive(:new).with(file).and_return(parser_stub)
+      allow(parser_stub).to receive(:execute)
+    end
+
+    context 'when provided with a valid file' do
+      it 'returns the parsed data' do
+        subject.parse(file)
+
+        expect(parser_stub).to have_received(:execute)
+      end
+    end
+  end
 end
