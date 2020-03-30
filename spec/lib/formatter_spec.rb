@@ -18,4 +18,14 @@ RSpec.describe Formatter do
                 [:"/contact", ['4.5.6.6']]])
     end
   end
+
+  describe '#sort_by_unique_page_views' do
+    it 'returns unique page views ordered from most unique views to less page views' do
+      expect(subject.sort_by_unique_page_views)
+        .to eq([[:"/about", 3],
+                [:"/home", 2],
+                [:"/contact", 1],
+                [:"/user/2", 1]])
+    end
+  end
 end
