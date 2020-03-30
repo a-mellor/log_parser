@@ -22,6 +22,10 @@ class DataAnalyser
     Formatter.new(parse).sort_by_most_page_views
   end
 
+  def unique_page_views
+    Formatter.new(parse).sort_by_unique_page_views
+  end
+
   def valid?
     file_extension = File.extname(file)
     unless ACCEPTED_FILES.include?(file_extension)
