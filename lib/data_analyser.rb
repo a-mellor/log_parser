@@ -1,3 +1,5 @@
+require 'log_parser'
+
 class DataAnalyser
   ACCEPTED_FILES = ['.log'].freeze
 
@@ -7,6 +9,12 @@ class DataAnalyser
 
   def initialize(file)
     @file = file
+  end
+
+  def parse(file)
+    valid?
+
+    LogParser.new(file).execute
   end
 
   def valid?

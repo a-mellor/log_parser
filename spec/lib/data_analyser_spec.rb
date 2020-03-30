@@ -31,8 +31,8 @@ RSpec.describe DataAnalyser do
     end
 
     context 'when provided with a valid file' do
-      it 'returns the parsed data' do
-        subject.parse(file)
+      it 'calls LogParser#execute' do
+        subject.parse
 
         expect(parser_stub).to have_received(:execute)
       end
