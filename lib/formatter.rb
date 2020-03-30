@@ -7,6 +7,10 @@ class Formatter
     data.sort_by { |_, ip_address| ip_address.length }.reverse
   end
 
+  def sort_by_unique_page_views
+
+  end
+
   private
 
   attr_reader :data
