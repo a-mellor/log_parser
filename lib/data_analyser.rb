@@ -1,5 +1,5 @@
-require 'log_parser'
-require 'formatter'
+require './lib/log_parser'
+require './lib/formatter'
 
 class DataAnalyser
   ACCEPTED_FILES = ['.log'].freeze
