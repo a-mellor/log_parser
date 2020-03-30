@@ -1,4 +1,5 @@
 require 'log_parser'
+require 'formatter'
 
 class DataAnalyser
   ACCEPTED_FILES = ['.log'].freeze
@@ -15,6 +16,10 @@ class DataAnalyser
     valid?
 
     LogParser.new(file).execute
+  end
+
+  def most_page_views
+    Formatter.new(parse).sort_by_most_page_views
   end
 
   def valid?
