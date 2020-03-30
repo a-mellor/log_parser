@@ -54,4 +54,20 @@ RSpec.describe DataAnalyser do
       expect(formatter_stub).to have_received(:sort_by_most_page_views)
     end
   end
+
+  describe '#unique_page_views' do
+    let(:formatter_stub) { instance_double(Formatter) }
+    let(:parsed_data) { subject.parse }
+
+    before do
+      allow(Formatter).to receive(:new).with(parsed_data).and_return(formatter_stub)
+      allow(formatter_stub).to receive(:sort_by_unique_page_views)
+    end
+
+    it 'calls Formatter#sort_by_unique_page_views' do
+      subject.unique_page_views
+
+      expect(formatter_stub).to have_received(:sort_by_unique_page_views)
+    end
+  end
 end
