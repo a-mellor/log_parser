@@ -17,7 +17,8 @@ RSpec.describe DataAnalyser do
       it 'raies an error' do
         expect { subject.valid? }
           .to raise_error(described_class::InvalidFileError,
-                          ".pdf is not vaild, please prodive #{described_class::ACCEPTED_FILES.join(',')} file")
+                          '.pdf is not vaild, please prodive '\
+                          "#{described_class::ACCEPTED_FILES.join(',')} file")
       end
     end
   end
